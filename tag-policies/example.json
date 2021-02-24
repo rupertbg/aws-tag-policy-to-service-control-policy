@@ -1,0 +1,37 @@
+{
+    "tags": {
+        "Color": {
+            "tag_key": {
+                "@@operators_allowed_for_child_policies": [
+                    "@@none"
+                ],
+                "@@assign": "Color"
+            },
+            "tag_value": {
+                "@@operators_allowed_for_child_policies": [
+                    "@@none"
+                ],
+                "@@assign": []
+            },
+            "enforced_for": {
+                "@@assign": [
+                    "dynamodb:table"
+                ]
+            }
+        },
+        "Shape": {
+            "tag_key": {
+                "@@operators_allowed_for_child_policies": [
+                    "@@none"
+                ],
+                "@@assign": "Shape"
+            },
+            "tag_value": {
+                "@@operators_allowed_for_child_policies": [
+                    "@@none"
+                ],
+                "@@assign": []
+            }
+        }
+    }
+}

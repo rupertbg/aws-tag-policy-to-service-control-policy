@@ -1,0 +1,22 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Deny Missing Color on dynamodb:table",
+      "Effect": "Deny",
+      "Action": [
+        "dynamodb:CreateTable",
+        "dynamodb:TagResource",
+        "dynamodb:UnTagResource"
+      ],
+      "Resource": [
+        "arn:*:dynamodb:*:*:table/*"
+      ],
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Color": "?*"
+        }
+      }
+    }
+  ]
+}
