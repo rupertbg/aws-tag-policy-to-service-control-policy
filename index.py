@@ -4,15 +4,6 @@ import os
 TAG_POLICY_DIR = "tag-policies"
 SCP_DIR = "service-control-policies"
 RESOURCE_TO_ACTION_MAP = "resource-syntax-map.json"
-resource_action_map = {}
-
-try:
-    with open(os.path.join(".", RESOURCE_TO_ACTION_MAP)) as json_file:
-        resource_action_map = json.load(json_file)
-except:
-    print("IAM Action to Resources map file not found")
-    quit()
-
 
 def valid_tag_resource(resource):
     if "Dedupe" in resource:
@@ -53,7 +44,7 @@ def deduplicate_matching_statements_remove_empty(resource_map):
     return deduped
 
 
-def generate_statement_from_resource_map(tag_condition_keys, resource_map):
+def generate_statement_from_resource_map(resource_map):
     print(f"--- Generating SCP statement")
     statement = []
     resources = deduplicate_matching_statements_remove_empty(resource_map)
@@ -69,8 +60,12 @@ def generate_statement_from_resource_map(tag_condition_keys, resource_map):
 
 
 def convert_tag_policy_to_scp_statements(tag_policy):
-    tag_condition_keys = []
-    resource_map = resource_action_map.copy()
+    try:
+        with open(os.path.join(".", RESOURCE_TO_ACTION_MAP)) as json_file:
+            resource_map = json.load(json_file)
+    except:
+        print("IAM Action to Resources map file not found")
+        quit()
     print(f"--- Reading enforced resources")
     for tag_name in tag_policy["tags"]:
         if "enforced_for" in tag_policy["tags"][tag_name]:
@@ -80,7 +75,7 @@ def convert_tag_policy_to_scp_statements(tag_policy):
                 tag_policy["tags"][tag_name],
                 resource_map
             )
-    return generate_statement_from_resource_map(tag_condition_keys, resource_map)
+    return generate_statement_from_resource_map(resource_map)
 
 
 def add_tag_condition_to_resource(tag_name, resource_name, resource):
@@ -112,12 +107,12 @@ def add_tag_conditions_to_resource_map(tag_name, tag_statement, resource_map):
 
 def convert_tag_policy_to_scp(filename, tag_policy):
     statements = convert_tag_policy_to_scp_statements(tag_policy)
-    print(f"Converted {filename} to SCP")
+    print(f"--- Converted {filename} to SCP")
     return {"Version": "2012-10-17", "Statement": statements}
 
 
 def write_scp_to_disk(filename, scp):
-    print(f"Writing SCP: {filename}")
+    print(f"--- Writing SCP: {filename}")
     with open(os.path.join(SCP_DIR, filename), "w") as scp_file:
         json.dump(scp, scp_file, indent=2)
 

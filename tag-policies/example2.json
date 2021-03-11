@@ -1,0 +1,46 @@
+{
+    "tags": {
+        "Shape": {
+            "tag_key": {
+                "@@operators_allowed_for_child_policies": [
+                    "@@none"
+                ],
+                "@@assign": "Shape"
+            },
+            "enforced_for": {
+                "@@assign": [
+                    "events:*",
+                    "cloudfront:*",
+                    "ec2:*"
+                ]
+            }
+        },
+        "Style": {
+            "tag_key": {
+                "@@operators_allowed_for_child_policies": [
+                    "@@none"
+                ]
+            },
+            "enforced_for": {
+                "@@assign": [
+                    "ec2:*",
+                    "cloudfront:*"
+                ]
+            }
+        },
+        "Roughness": {
+            "tag_key": {
+                "@@operators_allowed_for_child_policies": [
+                    "@@none"
+                ],
+                "@@assign": "Roughness"
+            },
+            "enforced_for": {
+                "@@assign": [
+                    "dynamodb:*",
+                    "cloudwatch:alarm"
+                ]
+            }
+        }
+    }
+}

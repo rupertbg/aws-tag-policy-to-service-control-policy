@@ -1,0 +1,59 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyMissingTags0",
+      "Effect": "Deny",
+      "Action": [
+        "cloudfront:CreateDistribution",
+        "cloudfront:CreateDistributionWithTags",
+        "cloudfront:CreateStreamingDistribution",
+        "cloudfront:CreateStreamingDistributionWithTags",
+        "ec2:CreateCapacityReservation",
+        "ec2:CreateLaunchTemplate",
+        "ec2:CreateLaunchTemplateVersion",
+        "ec2:CreateTags",
+        "ec2:RunInstances",
+        "ec2:CreateImage",
+        "ec2:CreateSubnet",
+        "ec2:CreateVolume",
+        "ec2:CreateVpc",
+        "ec2:CreateVpcEndpoint"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "Null": {
+          "aws:RequestTag/Shape": "true",
+          "aws:RequestTag/Style": "true"
+        }
+      }
+    },
+    {
+      "Sid": "DenyMissingTags1",
+      "Effect": "Deny",
+      "Action": [
+        "cloudwatch:PutMetricAlarm"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "Null": {
+          "aws:RequestTag/Roughness": "true"
+        }
+      }
+    },
+    {
+      "Sid": "DenyMissingTags2",
+      "Effect": "Deny",
+      "Action": [
+        "events:CreateEventBus",
+        "events:CreateEventRule"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "Null": {
+          "aws:RequestTag/Shape": "true"
+        }
+      }
+    }
+  ]
+}
