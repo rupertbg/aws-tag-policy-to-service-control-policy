@@ -1,22 +1,79 @@
 {
-  "apigateway:apikeys": {},
-  "apigateway:domainnames": {},
-  "apigateway:restapis": {},
-  "apigateway:stages": {},
-  "appmesh:mesh": {},
-  "appmesh:route": {},
-  "appmesh:virtualNode": {},
-  "appmesh:virtualRouter": {},
-  "appmesh:virtualService": {},
-  "athena:workgroup": {},
-  "acm:certificate": {},
-  "cloudfront:distribution": {},
-  "cloudfront:streaming-distribution": {},
-  "cloudtrail:trail": {},
-  "cloudwatch:alarm": {},
-  "events:event-bus": {},
-  "events:rule": {},
-  "codebuild:project": {},
+  "apigateway:apikeys": {
+    "Action": "apigateway:CreateApiKey"
+  },
+  "apigateway:domainnames": {
+    "Action": "apigateway:CreateDomainName"
+  },
+  "apigateway:restapis": {
+    "Action": "apigateway:CreateApi"
+  },
+  "apigateway:stages": {
+    "Action": "apigateway:CreateStage"
+  },
+  "appmesh:mesh": {
+    "Action": "appmesh:CreateMesh"
+  },
+  "appmesh:route": {
+    "Action": "appmesh:CreateRoute"
+  },
+  "appmesh:virtualNode": {
+    "Action": "appmesh:CreateVirtualNode"
+  },
+  "appmesh:virtualRouter": {
+    "Action": "appmesh:CreateVirtualRouter"
+  },
+  "appmesh:virtualService": {
+    "Action": "appmesh:CreateVirtualService"
+  },
+  "athena:workgroup": {
+    "Action": "athena:CreateWorkGroup"
+  },
+  "acm:certificate": {
+    "Action": [
+      "acm:AddTagsToCertificate",
+      "acm:RequestCertificate",
+      "acm:ImportCertificate"
+    ]
+  },
+  "cloudfront:distribution": {
+    "Action": [
+      "cloudfront:CreateDistribution",
+      "cloudfront:CreateDistributionWithTags"
+    ]
+  },
+  "cloudfront:streaming-distribution": {
+    "Action": [
+      "cloudfront:CreateStreamingDistribution",
+      "cloudfront:CreateStreamingDistributionWithTags"
+    ]
+  },
+  "cloudtrail:trail": {
+    "Action": [
+      "cloudtrail:CreateTrail"
+    ]
+  },
+  "cloudwatch:alarm": {
+    "Action": [
+      "cloudwatch:PutMetricAlarm"
+    ]
+  },
+  "events:event-bus": {
+    "Action": [
+      "events:CreateEventBus"
+    ]
+  },
+  "events:rule": {
+    "Action": [
+      "events:CreateEventRule"
+    ]
+  },
+  "codebuild:project": {
+    "Action": [
+      "codebuild:CreateProject",
+      "codebuild:UpdateProject"
+    ]
+  },
   "codecommit:repository": {},
   "codepipeline:actiontype": {},
   "codepipeline:pipeline": {},
@@ -36,17 +93,16 @@
   "directconnect:dxcon": {},
   "directconnect:dxlag": {},
   "directconnect:dxvif": {},
-  "dynamodb:table": {
-    "Actions": [
-      "dynamodb:CreateTable",
-      "dynamodb:TagResource",
-      "dynamodb:UnTagResource"
-    ],
-    "Resources": [
-        "arn:*:dynamodb:*:*:table/*"
+  "dynamodb:table": {},
+  "ec2:capacity-reservation": {
+    "Action": [
+      "ec2:CreateCapacityReservation",
+      "ec2:CreateLaunchTemplate",
+      "ec2:CreateLaunchTemplateVersion",
+      "ec2:CreateTags",
+      "ec2:RunInstances"
     ]
   },
-  "ec2:capacity-reservation": {},
   "ec2:client-vpn-endpoint": {},
   "ec2:customer-gateway": {},
   "ec2:dhcp-options": {},
@@ -54,8 +110,15 @@
   "ec2:fleet": {},
   "ec2:fpga-image": {},
   "ec2:host-reservation": {},
-  "ec2:image": {},
-  "ec2:instance": {},
+  "ec2:image": {
+    "Action": "ec2:CreateImage"
+  },
+  "ec2:instance": {
+    "Action": [
+      "ec2:RunInstances",
+      "ec2:CreateTags"
+    ]
+  },
   "ec2:internet-gateway": {},
   "ec2:launch-template": {},
   "ec2:natgateway": {},
@@ -66,13 +129,21 @@
   "ec2:security-group": {},
   "ec2:snapshot": {},
   "ec2:spot-instance-request": {},
-  "ec2:subnet": {},
+  "ec2:subnet": {
+    "Action": "ec2:CreateSubnet"
+  },
   "ec2:traffic-mirror-filter": {},
   "ec2:traffic-mirror-session": {},
   "ec2:traffic-mirror-target": {},
-  "ec2:volume": {},
-  "ec2:vpc": {},
-  "ec2:vpc-endpoint": {},
+  "ec2:volume": {
+    "Action": "ec2:CreateVolume"
+  },
+  "ec2:vpc": {
+    "Action": "ec2:CreateVpc"
+  },
+  "ec2:vpc-endpoint": {
+    "Action": "ec2:CreateVpcEndpoint"
+  },
   "ec2:vpc-endpoint-service": {},
   "ec2:vpc-peering-connection": {},
   "ec2:vpn-connection": {},

@@ -15,7 +15,8 @@
             },
             "enforced_for": {
                 "@@assign": [
-                    "dynamodb:table"
+                    "dynamodb:table",
+                    "ec2:*"
                 ]
             }
         },
@@ -26,11 +27,53 @@
                 ],
                 "@@assign": "Shape"
             },
-            "tag_value": {
+            "enforced_for": {
+                "@@assign": [
+                    "events:*",
+                    "cloudfront:*",
+                    "ec2:*"
+                ]
+            }
+        },
+        "Style": {
+            "tag_key": {
+                "@@operators_allowed_for_child_policies": [
+                    "@@none"
+                ]
+            },
+            "enforced_for": {
+                "@@assign": [
+                    "ec2:*",
+                    "cloudfront:*"
+                ]
+            }
+        },
+        "Roughness": {
+            "tag_key": {
                 "@@operators_allowed_for_child_policies": [
                     "@@none"
                 ],
-                "@@assign": []
+                "@@assign": "Roughness"
+            },
+            "enforced_for": {
+                "@@assign": [
+                    "dynamodb:*",
+                    "cloudwatch:alarm"
+                ]
+            }
+        },
+        "Specular": {
+            "tag_key": {
+                "@@operators_allowed_for_child_policies": [
+                    "@@none"
+                ],
+                "@@assign": "Specular"
+            },
+            "enforced_for": {
+                "@@assign": [
+                    "dynamodb:table",
+                    "ec2:*"
+                ]
             }
         }
     }
