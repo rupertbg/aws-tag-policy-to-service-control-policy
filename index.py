@@ -27,7 +27,6 @@ def valid_tag_resource(resource):
 def deduplicate_matching_statements_remove_empty(resource_map):
     deduped = {}
     print("||| Deduplicating generated statements")
-    # Dedupe statements
     for resource in resource_map:
         if not valid_tag_resource(resource_map[resource]):
             continue
@@ -47,9 +46,10 @@ def deduplicate_matching_statements_remove_empty(resource_map):
                     resource_map[compare]["Action"])
                 resource_map[compare]["Dedupe"] = True
         deduped[resource] = resource_map[resource]
-    # Dedupe actions
+    print("||| Deduplicating generated action lists")
     for resource in deduped:
-        deduped[resource]["Action"] = list(dict.fromkeys(deduped[resource]["Action"]))
+        deduped[resource]["Action"] = list(
+            dict.fromkeys(deduped[resource]["Action"]))
     return deduped
 
 
@@ -71,16 +71,26 @@ def generate_statement_from_resource_map(tag_condition_keys, resource_map):
 def convert_tag_policy_to_scp_statements(tag_policy):
     tag_condition_keys = []
     resource_map = resource_action_map.copy()
-    print(f"--- Reading enforced actions")
+    print(f"--- Reading enforced resources")
     for tag_name in tag_policy["tags"]:
         if "enforced_for" in tag_policy["tags"][tag_name]:
+            print(f"||| Enforced resources for {tag_name}:")
             resource_map = add_tag_conditions_to_resource_map(
                 tag_name,
                 tag_policy["tags"][tag_name],
                 resource_map
             )
-            print(f"||| Read enforced actions for {tag_name}")
     return generate_statement_from_resource_map(tag_condition_keys, resource_map)
+
+
+def add_tag_condition_to_resource(tag_name, resource_name, resource):
+    if "Condition" not in resource:
+        resource["Condition"] = {"Null": {}}
+    resource["Condition"]["Null"][f"aws:RequestTag/{tag_name}"] = "true"
+    message = resource_name
+    if "Action" not in resource:
+        message = f"{resource_name} (WARNING: not implemented)"
+    print(f"|||--- {message}")
 
 
 def add_tag_conditions_to_resource_map(tag_name, tag_statement, resource_map):
@@ -89,20 +99,14 @@ def add_tag_conditions_to_resource_map(tag_name, tag_statement, resource_map):
         if io in tag_statement["enforced_for"]:
             for resource in tag_statement["enforced_for"][io]:
                 if resource in resource_map.keys():
-                    if "Condition" not in resource_map[resource]:
-                        resource_map[resource]["Condition"] = {
-                            "Null": {}}
-                    resource_map[resource]["Condition"][
-                        "Null"][f"aws:RequestTag/{tag_name}"] = "true"
+                    add_tag_condition_to_resource(
+                        tag_name, resource, resource_map[resource])
                 elif resource.endswith(':*'):
                     wildcard_resources = [r for r in resource_map.keys(
                     ) if r.startswith(resource.split(':')[0])]
                     for wildcard_resource in wildcard_resources:
-                        if "Condition" not in resource_map[wildcard_resource]:
-                            resource_map[wildcard_resource]["Condition"] = {
-                                "Null": {}}
-                        resource_map[wildcard_resource]["Condition"][
-                            "Null"][f"aws:RequestTag/{tag_name}"] = "true"
+                        add_tag_condition_to_resource(
+                            tag_name, wildcard_resource, resource_map[wildcard_resource])
     return resource_map
 
 
