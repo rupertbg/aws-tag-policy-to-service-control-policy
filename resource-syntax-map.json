@@ -371,7 +371,8 @@
       "ec2:RunInstances"
     ],
     "Resource": [
-      "arn:*:ec2:*:*:instance/*"
+      "arn:*:ec2:*:*:instance/*",
+      "arn:*:ec2:*:*:security-group/*"
     ]
   },
   "ec2:internet-gateway": {
@@ -432,9 +433,7 @@
     ]
   },
   "ec2:security-group": {
-    "Action": [
-      "ec2:CreateSecurityGroup"
-    ],
+    "Action": [],
     "Resource": [
       "arn:*:ec2:*:*:security-group/*"
     ]

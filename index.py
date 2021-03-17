@@ -7,68 +7,58 @@ RESOURCE_TO_ACTION_MAP = "resource-syntax-map.json"
 
 
 def valid_statement(statement):
-    if "Dedupe" in statement:
-        return False
-    elif "Condition" not in statement:
+    if "Condition" not in statement:
         return False
     elif "Action" not in statement or len(statement["Action"]) == 0:
+        return False
+    elif "Resource" not in statement or len(statement["Resource"]) == 0:
         return False
     return True
 
 
-def optimize_statment_packing(statements):
-    deduped = []
-    print("||| Optimizing generated statements")
-    for s in statements:
-        if not valid_statement(s):
-            continue
-        for compare in statements:
-            if s == compare:
-                continue
-            elif not valid_statement(compare):
-                continue
+def validate_and_optimize_statement(s):
+    if not valid_statement(s):
+        return False
+    for attr in ["Action", "Resource"]:
+        if isinstance(s[attr], list) and len(s[attr]) == 1:
+            s[attr] = s[attr][0]
+        else:
+            s[attr] = s[attr] = list(dict.fromkeys(s[attr]))
+    return s
 
-            for attr in ["Action", "Resource"]:
-                # Process matching condition statements
-                if s["Condition"] == compare["Condition"]:
-                    if isinstance(s[attr], str):
-                        s[attr] = [s[attr]]
-                    if isinstance(compare[attr], str):
-                        compare[attr] = [compare[attr]]
-                    # s[attr].extend(
-                    #     compare[attr]
-                    # )
-                    # compare["Dedupe"] = True
-        deduped.append(s)
 
-    print("||| Deduplicating generated action lists")
-    for s in deduped:
-        s["Action"] = list(
-            dict.fromkeys(s["Action"]))
-        s["Resource"] = list(
-            dict.fromkeys(s["Resource"]))
-    return deduped
+def inject_tag_to_condition_template(tag, condition):
+    new_condition = {}
+    for condition_key in condition:
+        new_condition[condition_key] = {}
+        for key, val in condition[condition_key].items():
+            new_key = key.replace("<tag>", tag)
+            new_condition[condition_key][new_key] = val.replace("<tag>", tag)
+    return new_condition
 
 
 def tag_and_resource_to_statement(sid, tag_name, resource_name, resource):
     print(f"--- Generating SCP statement for {tag_name} / {resource_name}")
-    statement_action = resource["Action"]
-    if len(resource["Action"]) == 1:
-        statement_action = resource["Action"][0]
-    statement_resource = resource["Resource"]
-    if len(resource["Resource"]) == 1:
-        statement_resource = resource["Resource"][0]
-    return {
+    statement = {
         "Sid": sid,
         "Effect": "Deny",
-        "Action": statement_action,
-        "Resource": statement_resource,
-        "Condition": {
+    }
+
+    if "Condition" in resource and len(resource["Condition"].keys()) > 0:
+        statement["Condition"] = inject_tag_to_condition_template(tag_name, resource["Condition"])
+    else:
+        statement["Condition"] = {
             "StringNotLike": {
                 f"aws:RequestTag/{tag_name}": "?*",
             }
         }
-    }
+
+    for attr in ["Action", "Resource"]:
+        if attr in resource:
+            statement[attr] = resource[attr]
+    print(
+        f"||| Optimizing generated statement for {tag_name} / {resource_name}")
+    return validate_and_optimize_statement(statement)
 
 
 def convert_tag_policy_to_scp_statements(tag_policy):
@@ -97,7 +87,8 @@ def convert_tag_policy_to_scp_statements(tag_policy):
                             itr += 1
                             s = tag_and_resource_to_statement(
                                 f"tag{itr}", tag_name, resource_name, resource_map[resource_name])
-                            statements.append(s)
+                            if s:
+                                statements.append(s)
                         # Handle wildcard resources in resource map
                         elif resource_name.endswith(':*'):
                             wildcard_resources = [r for r in resource_map.keys(
@@ -105,7 +96,8 @@ def convert_tag_policy_to_scp_statements(tag_policy):
                             for wildcard_resource_name in wildcard_resources:
                                 s = tag_and_resource_to_statement(
                                     f"tag{itr}", tag_name, wildcard_resource_name, resource_map[wildcard_resource_name])
-                                statements.append(s)
+                                if s:
+                                    statements.append(s)
     return statements
 
 
