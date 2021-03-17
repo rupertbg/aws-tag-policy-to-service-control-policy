@@ -15,8 +15,8 @@
             },
             "enforced_for": {
                 "@@assign": [
-                    "dynamodb:table",
-                    "ec2:*"
+                    "ec2:instance",
+                    "ec2:volume"
                 ]
             }
         },
@@ -29,9 +29,7 @@
             },
             "enforced_for": {
                 "@@assign": [
-                    "events:*",
-                    "cloudfront:*",
-                    "ec2:*"
+                    "ec2:instance"
                 ]
             }
         },
@@ -43,8 +41,7 @@
             },
             "enforced_for": {
                 "@@assign": [
-                    "ec2:*",
-                    "cloudfront:*"
+                    "ec2:instance"
                 ]
             }
         },
@@ -57,8 +54,7 @@
             },
             "enforced_for": {
                 "@@assign": [
-                    "dynamodb:*",
-                    "cloudwatch:alarm"
+                    "ec2:instance"
                 ]
             }
         },
@@ -71,8 +67,9 @@
             },
             "enforced_for": {
                 "@@assign": [
-                    "dynamodb:table",
-                    "ec2:*"
+                    "ec2:instance",
+                    "ec2:volume",
+                    "ec2:snapshot"
                 ]
             }
         }

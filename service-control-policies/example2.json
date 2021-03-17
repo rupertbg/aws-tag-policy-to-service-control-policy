@@ -2,56 +2,804 @@
   "Version": "2012-10-17",
   "Statement": [
     {
-      "Sid": "DenyMissingTags0",
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "events:CreateEventBus",
+      "Resource": "arn:*:events:*:*:event-bus/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Shape": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "events:CreateEventRule",
+      "Resource": "arn:*:events:*:*:rule/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Shape": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
       "Effect": "Deny",
       "Action": [
         "cloudfront:CreateDistribution",
-        "cloudfront:CreateDistributionWithTags",
+        "cloudfront:CreateDistributionWithTags"
+      ],
+      "Resource": "arn:*:cloudfront:*:*:distribution/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Shape": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": [
         "cloudfront:CreateStreamingDistribution",
-        "cloudfront:CreateStreamingDistributionWithTags",
-        "ec2:CreateCapacityReservation",
-        "ec2:CreateLaunchTemplate",
-        "ec2:CreateLaunchTemplateVersion",
-        "ec2:CreateTags",
-        "ec2:RunInstances",
+        "cloudfront:CreateStreamingDistributionWithTags"
+      ],
+      "Resource": "arn:*:cloudfront:*:*:streaming-distribution/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Shape": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateCapacityReservation",
+      "Resource": "arn:*:ec2:*:*:capacity-reservation/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Shape": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateClientVpnEndpoint",
+      "Resource": "arn:*:ec2:*:*:client-vpn-endpoint/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Shape": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateCustomerGateway",
+      "Resource": "arn:*:ec2:*:*:customer-gateway/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Shape": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateDhcpOptions",
+      "Resource": "arn:*:ec2:*:*:dhcp-options/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Shape": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateNatGateway",
+      "Resource": "arn:*:ec2:*:*:elastic-ip/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Shape": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateFleet",
+      "Resource": "arn:*:ec2:*:*:fleet/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Shape": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateFpgaImage",
+      "Resource": "arn:*:ec2:*:*:fpga-image/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Shape": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateTags",
+      "Resource": "arn:*:ec2:*:*:host-reservation/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Shape": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": [
         "ec2:CreateImage",
-        "ec2:CreateSubnet",
-        "ec2:CreateVolume",
-        "ec2:CreateVpc",
-        "ec2:CreateVpcEndpoint"
+        "ec2:ImportImage"
       ],
-      "Resource": "*",
+      "Resource": "arn:*:ec2:*:*:image/*",
       "Condition": {
-        "Null": {
-          "aws:RequestTag/Shape": "true",
-          "aws:RequestTag/Style": "true"
+        "StringNotLike": {
+          "aws:RequestTag/Shape": "?*"
         }
       }
     },
     {
-      "Sid": "DenyMissingTags1",
+      "Sid": "tag0",
       "Effect": "Deny",
-      "Action": [
-        "cloudwatch:PutMetricAlarm"
-      ],
-      "Resource": "*",
+      "Action": "ec2:RunInstances",
+      "Resource": "arn:*:ec2:*:*:instance/*",
       "Condition": {
-        "Null": {
-          "aws:RequestTag/Roughness": "true"
+        "StringNotLike": {
+          "aws:RequestTag/Shape": "?*"
         }
       }
     },
     {
-      "Sid": "DenyMissingTags2",
+      "Sid": "tag0",
       "Effect": "Deny",
       "Action": [
-        "events:CreateEventBus",
-        "events:CreateEventRule"
+        "ec2:CreateEgressOnlyInternetGateway",
+        "ec2:CreateInternetGateway"
       ],
-      "Resource": "*",
+      "Resource": "arn:*:ec2:*:*:internet-gateway/*",
       "Condition": {
-        "Null": {
-          "aws:RequestTag/Shape": "true"
+        "StringNotLike": {
+          "aws:RequestTag/Shape": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateLaunchTemplate",
+      "Resource": "arn:*:ec2:*:*:launch-template/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Shape": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateNatGateway",
+      "Resource": "arn:*:ec2:*:*:natgateway/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Shape": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateNetworkAcl",
+      "Resource": "arn:*:ec2:*:*:network-acl/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Shape": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateNetworkInterface",
+      "Resource": "arn:*:ec2:*:*:network-interface/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Shape": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateTags",
+      "Resource": "arn:*:ec2:*:*:reserved-instances/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Shape": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateRouteTable",
+      "Resource": "arn:*:ec2:*:*:route-table/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Shape": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateSecurityGroup",
+      "Resource": "arn:*:ec2:*:*:security-group/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Shape": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": [
+        "ec2:CopySnapshot",
+        "ec2:CreateSnapshot",
+        "ec2:CreateSnapshots"
+      ],
+      "Resource": "arn:*:ec2:*:*:snapshot/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Shape": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:RequestSpotInstances",
+      "Resource": "arn:*:ec2:*:*:spot-instance-request/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Shape": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateSubnet",
+      "Resource": "arn:*:ec2:*:*:subnet/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Shape": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateTrafficMirrorFilter",
+      "Resource": "arn:*:ec2:*:*:traffic-mirror-filter/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Shape": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateTrafficMirrorSession",
+      "Resource": "arn:*:ec2:*:*:traffic-mirror-session/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Shape": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateTrafficMirrorTarget",
+      "Resource": "arn:*:ec2:*:*:traffic-mirror-target/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Shape": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateVolume",
+      "Resource": "arn:*:ec2:*:*:volume/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Shape": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateVpc",
+      "Resource": "arn:*:ec2:*:*:vpc/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Shape": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateVpcEndpoint",
+      "Resource": "arn:*:ec2:*:*:vpc-endpoint/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Shape": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateVpcEndpointServiceConfiguration",
+      "Resource": "arn:*:ec2:*:*:vpc-endpoint-service/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Shape": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateVpcPeeringConnection",
+      "Resource": "arn:*:ec2:*:*:vpc-peering-connection/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Shape": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateVpnConnection",
+      "Resource": "arn:*:ec2:*:*:vpn-connection/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Shape": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateVpnGateway",
+      "Resource": "arn:*:ec2:*:*:vpn-gateway/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Shape": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateCapacityReservation",
+      "Resource": "arn:*:ec2:*:*:capacity-reservation/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Style": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateClientVpnEndpoint",
+      "Resource": "arn:*:ec2:*:*:client-vpn-endpoint/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Style": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateCustomerGateway",
+      "Resource": "arn:*:ec2:*:*:customer-gateway/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Style": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateDhcpOptions",
+      "Resource": "arn:*:ec2:*:*:dhcp-options/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Style": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateNatGateway",
+      "Resource": "arn:*:ec2:*:*:elastic-ip/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Style": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateFleet",
+      "Resource": "arn:*:ec2:*:*:fleet/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Style": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateFpgaImage",
+      "Resource": "arn:*:ec2:*:*:fpga-image/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Style": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateTags",
+      "Resource": "arn:*:ec2:*:*:host-reservation/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Style": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": [
+        "ec2:CreateImage",
+        "ec2:ImportImage"
+      ],
+      "Resource": "arn:*:ec2:*:*:image/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Style": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:RunInstances",
+      "Resource": "arn:*:ec2:*:*:instance/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Style": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": [
+        "ec2:CreateEgressOnlyInternetGateway",
+        "ec2:CreateInternetGateway"
+      ],
+      "Resource": "arn:*:ec2:*:*:internet-gateway/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Style": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateLaunchTemplate",
+      "Resource": "arn:*:ec2:*:*:launch-template/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Style": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateNatGateway",
+      "Resource": "arn:*:ec2:*:*:natgateway/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Style": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateNetworkAcl",
+      "Resource": "arn:*:ec2:*:*:network-acl/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Style": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateNetworkInterface",
+      "Resource": "arn:*:ec2:*:*:network-interface/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Style": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateTags",
+      "Resource": "arn:*:ec2:*:*:reserved-instances/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Style": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateRouteTable",
+      "Resource": "arn:*:ec2:*:*:route-table/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Style": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateSecurityGroup",
+      "Resource": "arn:*:ec2:*:*:security-group/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Style": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": [
+        "ec2:CopySnapshot",
+        "ec2:CreateSnapshot",
+        "ec2:CreateSnapshots"
+      ],
+      "Resource": "arn:*:ec2:*:*:snapshot/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Style": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:RequestSpotInstances",
+      "Resource": "arn:*:ec2:*:*:spot-instance-request/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Style": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateSubnet",
+      "Resource": "arn:*:ec2:*:*:subnet/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Style": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateTrafficMirrorFilter",
+      "Resource": "arn:*:ec2:*:*:traffic-mirror-filter/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Style": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateTrafficMirrorSession",
+      "Resource": "arn:*:ec2:*:*:traffic-mirror-session/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Style": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateTrafficMirrorTarget",
+      "Resource": "arn:*:ec2:*:*:traffic-mirror-target/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Style": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateVolume",
+      "Resource": "arn:*:ec2:*:*:volume/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Style": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateVpc",
+      "Resource": "arn:*:ec2:*:*:vpc/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Style": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateVpcEndpoint",
+      "Resource": "arn:*:ec2:*:*:vpc-endpoint/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Style": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateVpcEndpointServiceConfiguration",
+      "Resource": "arn:*:ec2:*:*:vpc-endpoint-service/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Style": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateVpcPeeringConnection",
+      "Resource": "arn:*:ec2:*:*:vpc-peering-connection/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Style": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateVpnConnection",
+      "Resource": "arn:*:ec2:*:*:vpn-connection/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Style": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "ec2:CreateVpnGateway",
+      "Resource": "arn:*:ec2:*:*:vpn-gateway/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Style": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": [
+        "cloudfront:CreateDistribution",
+        "cloudfront:CreateDistributionWithTags"
+      ],
+      "Resource": "arn:*:cloudfront:*:*:distribution/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Style": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": [
+        "cloudfront:CreateStreamingDistribution",
+        "cloudfront:CreateStreamingDistributionWithTags"
+      ],
+      "Resource": "arn:*:cloudfront:*:*:streaming-distribution/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Style": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag0",
+      "Effect": "Deny",
+      "Action": "dynamodb:TagResource",
+      "Resource": "arn:*:dynamodb:*:*:table/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Roughness": "?*"
+        }
+      }
+    },
+    {
+      "Sid": "tag1",
+      "Effect": "Deny",
+      "Action": "cloudwatch:PutMetricAlarm",
+      "Resource": "arn:*:cloudwatch:*:*:alarm/*",
+      "Condition": {
+        "StringNotLike": {
+          "aws:RequestTag/Roughness": "?*"
         }
       }
     }
