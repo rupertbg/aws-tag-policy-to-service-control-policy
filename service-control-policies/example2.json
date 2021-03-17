@@ -336,18 +336,7 @@
           "aws:RequestTag/Shape": "?*"
         }
       },
-      "Action": [
-        "e",
-        "c",
-        "2",
-        ":",
-        "C",
-        "r",
-        "a",
-        "t",
-        "V",
-        "p"
-      ],
+      "Action": "ec2:CreateVpc",
       "Resource": "arn:*:ec2:*:*:vpc/*"
     },
     {
@@ -358,23 +347,7 @@
           "aws:RequestTag/Shape": "?*"
         }
       },
-      "Action": [
-        "e",
-        "c",
-        "2",
-        ":",
-        "C",
-        "r",
-        "a",
-        "t",
-        "V",
-        "p",
-        "E",
-        "n",
-        "d",
-        "o",
-        "i"
-      ],
+      "Action": "ec2:CreateVpcEndpoint",
       "Resource": "arn:*:ec2:*:*:vpc-endpoint/*"
     },
     {
@@ -385,28 +358,7 @@
           "aws:RequestTag/Shape": "?*"
         }
       },
-      "Action": [
-        "e",
-        "c",
-        "2",
-        ":",
-        "C",
-        "r",
-        "a",
-        "t",
-        "V",
-        "p",
-        "E",
-        "n",
-        "d",
-        "o",
-        "i",
-        "S",
-        "v",
-        "f",
-        "g",
-        "u"
-      ],
+      "Action": "ec2:CreateVpcEndpointServiceConfiguration",
       "Resource": "arn:*:ec2:*:*:vpc-endpoint-service/*"
     },
     {
@@ -417,23 +369,7 @@
           "aws:RequestTag/Shape": "?*"
         }
       },
-      "Action": [
-        "e",
-        "c",
-        "2",
-        ":",
-        "C",
-        "r",
-        "a",
-        "t",
-        "V",
-        "p",
-        "P",
-        "i",
-        "n",
-        "g",
-        "o"
-      ],
+      "Action": "ec2:CreateVpcPeeringConnection",
       "Resource": "arn:*:ec2:*:*:vpc-peering-connection/*"
     },
     {
@@ -444,21 +380,7 @@
           "aws:RequestTag/Shape": "?*"
         }
       },
-      "Action": [
-        "e",
-        "c",
-        "2",
-        ":",
-        "C",
-        "r",
-        "a",
-        "t",
-        "V",
-        "p",
-        "n",
-        "o",
-        "i"
-      ],
+      "Action": "ec2:CreateVpnConnection",
       "Resource": "arn:*:ec2:*:*:vpn-connection/*"
     },
     {
@@ -469,22 +391,7 @@
           "aws:RequestTag/Shape": "?*"
         }
       },
-      "Action": [
-        "e",
-        "c",
-        "2",
-        ":",
-        "C",
-        "r",
-        "a",
-        "t",
-        "V",
-        "p",
-        "n",
-        "G",
-        "w",
-        "y"
-      ],
+      "Action": "ec2:CreateVpnGateway",
       "Resource": "arn:*:ec2:*:*:vpn-gateway/*"
     },
     {
@@ -772,18 +679,7 @@
           "aws:RequestTag/Style": "?*"
         }
       },
-      "Action": [
-        "e",
-        "c",
-        "2",
-        ":",
-        "C",
-        "r",
-        "a",
-        "t",
-        "V",
-        "p"
-      ],
+      "Action": "ec2:CreateVpc",
       "Resource": "arn:*:ec2:*:*:vpc/*"
     },
     {
@@ -794,23 +690,7 @@
           "aws:RequestTag/Style": "?*"
         }
       },
-      "Action": [
-        "e",
-        "c",
-        "2",
-        ":",
-        "C",
-        "r",
-        "a",
-        "t",
-        "V",
-        "p",
-        "E",
-        "n",
-        "d",
-        "o",
-        "i"
-      ],
+      "Action": "ec2:CreateVpcEndpoint",
       "Resource": "arn:*:ec2:*:*:vpc-endpoint/*"
     },
     {
@@ -821,28 +701,7 @@
           "aws:RequestTag/Style": "?*"
         }
       },
-      "Action": [
-        "e",
-        "c",
-        "2",
-        ":",
-        "C",
-        "r",
-        "a",
-        "t",
-        "V",
-        "p",
-        "E",
-        "n",
-        "d",
-        "o",
-        "i",
-        "S",
-        "v",
-        "f",
-        "g",
-        "u"
-      ],
+      "Action": "ec2:CreateVpcEndpointServiceConfiguration",
       "Resource": "arn:*:ec2:*:*:vpc-endpoint-service/*"
     },
     {
@@ -853,23 +712,7 @@
           "aws:RequestTag/Style": "?*"
         }
       },
-      "Action": [
-        "e",
-        "c",
-        "2",
-        ":",
-        "C",
-        "r",
-        "a",
-        "t",
-        "V",
-        "p",
-        "P",
-        "i",
-        "n",
-        "g",
-        "o"
-      ],
+      "Action": "ec2:CreateVpcPeeringConnection",
       "Resource": "arn:*:ec2:*:*:vpc-peering-connection/*"
     },
     {
@@ -880,21 +723,7 @@
           "aws:RequestTag/Style": "?*"
         }
       },
-      "Action": [
-        "e",
-        "c",
-        "2",
-        ":",
-        "C",
-        "r",
-        "a",
-        "t",
-        "V",
-        "p",
-        "n",
-        "o",
-        "i"
-      ],
+      "Action": "ec2:CreateVpnConnection",
       "Resource": "arn:*:ec2:*:*:vpn-connection/*"
     },
     {
@@ -905,22 +734,7 @@
           "aws:RequestTag/Style": "?*"
         }
       },
-      "Action": [
-        "e",
-        "c",
-        "2",
-        ":",
-        "C",
-        "r",
-        "a",
-        "t",
-        "V",
-        "p",
-        "n",
-        "G",
-        "w",
-        "y"
-      ],
+      "Action": "ec2:CreateVpnGateway",
       "Resource": "arn:*:ec2:*:*:vpn-gateway/*"
     },
     {

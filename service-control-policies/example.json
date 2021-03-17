@@ -62,11 +62,8 @@
           "aws:RequestTag/Roughness": "?*"
         }
       },
-      "Action": "ec2:RunInstances",
-      "Resource": [
-        "arn:*:ec2:*:*:instance/*",
-        "arn:*:ec2:*:*:security-group/*"
-      ]
+      "Action": "workspaces:CreateWorkspaces",
+      "Resource": "arn:*:workspaces:*:*:workspace/*"
     },
     {
       "Sid": "tag7",

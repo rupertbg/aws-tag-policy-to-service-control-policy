@@ -22,7 +22,7 @@ def validate_and_optimize_statement(s):
     for attr in ["Action", "Resource"]:
         if isinstance(s[attr], list) and len(s[attr]) == 1:
             s[attr] = s[attr][0]
-        else:
+        elif isinstance(s[attr], list):
             s[attr] = s[attr] = list(dict.fromkeys(s[attr]))
     return s
 
