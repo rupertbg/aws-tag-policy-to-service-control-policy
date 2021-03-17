@@ -1,80 +1,144 @@
 {
   "apigateway:apikeys": {
-    "Action": "apigateway:CreateApiKey"
+    "Action": "apigateway:CreateApiKey",
+    "Resource": [
+      "arn:*:apigateway:*:*:apikeys/*"
+    ]
   },
   "apigateway:domainnames": {
-    "Action": "apigateway:CreateDomainName"
+    "Action": "apigateway:CreateDomainName",
+    "Resource": [
+      "arn:*:apigateway:*:*:domainnames/*"
+    ]
   },
   "apigateway:restapis": {
     "Action": [
       "apigateway:CreateApi",
       "apigateway:PUT"
+    ],
+    "Resource": [
+      "arn:*:apigateway:*:*:restapis/*"
     ]
   },
   "apigateway:stages": {
-    "Action": "apigateway:CreateStage"
+    "Action": "apigateway:CreateStage",
+    "Resource": [
+      "arn:*:apigateway:*:*:stages/*"
+    ]
   },
   "appmesh:mesh": {
-    "Action": "appmesh:CreateMesh"
+    "Action": "appmesh:CreateMesh",
+    "Resource": [
+      "arn:*:appmesh:*:*:mesh/*"
+    ]
   },
   "appmesh:route": {
-    "Action": "appmesh:CreateRoute"
+    "Action": [
+      "appmesh:CreateRoute"
+    ],
+    "Resource": [
+      "arn:*:appmesh:*:*:route/*"
+    ]
   },
   "appmesh:virtualNode": {
-    "Action": "appmesh:CreateVirtualNode"
+    "Action": [
+      "appmesh:CreateVirtualNode"
+    ],
+    "Resource": [
+      "arn:*:appmesh:*:*:virtualNode/*"
+    ]
   },
   "appmesh:virtualRouter": {
-    "Action": "appmesh:CreateVirtualRouter"
+    "Action": [
+      "appmesh:CreateVirtualRouter"
+    ],
+    "Resource": [
+      "arn:*:appmesh:*:*:virtualRouter/*"
+    ]
   },
   "appmesh:virtualService": {
-    "Action": "appmesh:CreateVirtualService"
+    "Action": [
+      "appmesh:CreateVirtualService"
+    ],
+    "Resource": [
+      "arn:*:appmesh:*:*:virtualService/*"
+    ]
   },
   "athena:workgroup": {
-    "Action": "athena:CreateWorkGroup"
+    "Action": [
+      "athena:CreateWorkGroup"
+    ],
+    "Resource": [
+      "arn:*:athena:*:*:workgroup/*"
+    ]
   },
   "acm:certificate": {
     "Action": [
       "acm:AddTagsToCertificate",
       "acm:RequestCertificate",
       "acm:ImportCertificate"
+    ],
+    "Resource": [
+      "arn:*:acm:*:*:natgateway/*"
     ]
   },
   "cloudfront:distribution": {
     "Action": [
       "cloudfront:CreateDistribution",
       "cloudfront:CreateDistributionWithTags"
+    ],
+    "Resource": [
+      "arn:*:cloudfront:*:*:distribution/*"
     ]
   },
   "cloudfront:streaming-distribution": {
     "Action": [
       "cloudfront:CreateStreamingDistribution",
       "cloudfront:CreateStreamingDistributionWithTags"
+    ],
+    "Resource": [
+      "arn:*:cloudfront:*:*:streaming-distribution/*"
     ]
   },
   "cloudtrail:trail": {
     "Action": [
       "cloudtrail:CreateTrail"
+    ],
+    "Resource": [
+      "arn:*:cloudtrail:*:*:trail/*"
     ]
   },
   "cloudwatch:alarm": {
     "Action": [
       "cloudwatch:PutMetricAlarm"
+    ],
+    "Resource": [
+      "arn:*:cloudwatch:*:*:alarm/*"
     ]
   },
   "events:event-bus": {
     "Action": [
       "events:CreateEventBus"
+    ],
+    "Resource": [
+      "arn:*:events:*:*:event-bus/*"
     ]
   },
   "events:rule": {
     "Action": [
       "events:CreateEventRule"
+    ],
+    "Resource": [
+      "arn:*:events:*:*:rule/*"
     ]
   },
   "codebuild:project": {
     "Action": [
       "codebuild:CreateProject",
       "codebuild:UpdateProject"
+    ],
+    "Resource": [
+      "arn:*:codebuild:*:*:project/*"
     ]
   },
   "codecommit:repository": {},
@@ -85,6 +149,9 @@
     "Action": [
       "cognito-identity:CreateIdentityPool",
       "cognito-identity:TagResource"
+    ],
+    "Resource": [
+      "arn:*:cognito-identity:*:*:identitypool/*"
     ]
   },
   "cognito-idp:userpool": {
@@ -92,270 +159,795 @@
       "cognito-idp:CreateUserPool",
       "cognito-idp:UpdateUserPool",
       "cognito-idp:TagResource"
+    ],
+    "Resource": [
+      "arn:*:cognito-idp:*:*:userpool/*"
     ]
   },
   "comprehend:document-classifier": {
     "Action": [
       "comprehend:CreateDocumentClassifier",
       "comprehend:TagResource"
+    ],
+    "Resource": [
+      "arn:*:comprehend:*:*:document-classifier/*"
     ]
   },
   "comprehend:entity-recognizer": {
     "Action": [
       "comprehend:CreateEntityRecognizer",
       "comprehend:TagResource"
+    ],
+    "Resource": [
+      "arn:*:comprehend:*:*:entity-recognizer/*"
     ]
   },
   "config:aggregation-authorization": {
     "Action": [
       "config:PutAggregationAuthorization",
       "config:TagResource"
+    ],
+    "Resource": [
+      "arn:*:config:*:*:ggregation-authorization/*"
     ]
   },
   "config:config-aggregator": {
     "Action": [
       "config:PutConfigurationAggregator",
       "config:TagResource"
+    ],
+    "Resource": [
+      "arn:*:config:*:*:config-aggregator/*"
     ]
   },
   "config:config-rule": {
     "Action": [
       "config:PutConfigRule",
       "config:TagResource"
+    ],
+    "Resource": [
+      "arn:*:config:*:*:config-rule/*"
     ]
   },
   "dms:endpoint": {
     "Action": [
       "dms:AddTagsToResource",
       "dms:CreateEndpoint"
+    ],
+    "Resource": [
+      "arn:*:dms:*:*:endpoint/*"
     ]
   },
   "dms:es": {
     "Action": [
       "dms:AddTagsToResource",
       "dms:CreateEventSubscription"
+    ],
+    "Resource": [
+      "arn:*:dms:*:*:es/*"
     ]
   },
   "dms:rep": {
     "Action": [
       "dms:AddTagsToResource",
       "dms:CreateReplicationInstance"
+    ],
+    "Resource": [
+      "arn:*:dms:*:*:rep/*"
     ]
   },
   "dms:subgrp": {
     "Action": [
       "dms:AddTagsToResource",
       "dms:CreateReplicationSubnetGroup"
+    ],
+    "Resource": [
+      "arn:*:dms:*:*:subgrp/*"
     ]
   },
   "dms:task": {
     "Action": [
       "dms:AddTagsToResource",
       "dms:CreateReplicationTask"
+    ],
+    "Resource": [
+      "arn:*:dms:*:*:task/*"
     ]
   },
   "directconnect:dxcon": {
     "Action": [
-      "directconnect:AllocateTransitVirtualInterface",
       "directconnect:AllocatePublicVirtualInterface",
       "directconnect:AllocatePrivateVirtualInterface",
       "directconnect:AllocateHostedConnection",
-      "directconnect:CreateLag",
-      "directconnect:CreateTransitVirtualInterface",
-      "directconnect:CreatePublicVirtualInterface",
-      "directconnect:CreatePrivateVirtualInterface",
       "directconnect:TagResource"
+    ],
+    "Resource": [
+      "arn:*:directconnect:*:*:dxcon/*"
     ]
   },
   "directconnect:dxlag": {
     "Action": [
-      "directconnect:AllocateTransitVirtualInterface",
-      "directconnect:AllocatePublicVirtualInterface",
-      "directconnect:AllocatePrivateVirtualInterface",
-      "directconnect:AllocateHostedConnection",
-      "directconnect:CreateConnection",
-      "directconnect:CreateInterconnect",
-      "directconnect:CreateTransitVirtualInterface",
-      "directconnect:CreatePublicVirtualInterface",
-      "directconnect:CreatePrivateVirtualInterface",
+      "directconnect:CreateLag",
       "directconnect:TagResource"
+    ],
+    "Resource": [
+      "arn:*:directconnect:*:*:dxlag/*"
     ]
   },
   "directconnect:dxvif": {
     "Action": [
+      "directconnect:CreateTransitVirtualInterface",
+      "directconnect:CreatePublicVirtualInterface",
+      "directconnect:CreatePrivateVirtualInterface",
       "directconnect:TagResource"
+    ],
+    "Resource": [
+      "arn:*:directconnect:*:*:dxvif/*"
     ]
   },
   "dynamodb:table": {
     "Action": [
       "dynamodb:TagResource"
+    ],
+    "Resource": [
+      "arn:*:dynamodb:*:*:table/*"
     ]
   },
   "ec2:capacity-reservation": {
     "Action": [
-      "ec2:CreateCapacityReservation",
-      "ec2:CreateLaunchTemplate",
-      "ec2:CreateLaunchTemplateVersion",
-      "ec2:CreateTags",
-      "ec2:RunInstances"
+      "ec2:CreateCapacityReservation"
+    ],
+    "Resource": [
+      "arn:*:ec2:*:*:capacity-reservation/*"
     ]
   },
   "ec2:client-vpn-endpoint": {
     "Action": [
-      "ec2:CreateClientVpnEndpoint",
-      "ec2:CreateTags"
+      "ec2:CreateClientVpnEndpoint"
+    ],
+    "Resource": [
+      "arn:*:ec2:*:*:client-vpn-endpoint/*"
     ]
   },
   "ec2:customer-gateway": {
     "Action": [
-      "ec2:CreateVpnConnection",
-      "ec2:CreateCustomerGateway",
-      "ec2:CreateTags"
+      "ec2:CreateCustomerGateway"
+    ],
+    "Resource": [
+      "arn:*:ec2:*:*:customer-gateway/*"
     ]
   },
   "ec2:dhcp-options": {
     "Action": [
-      "ec2:CreateDhcpOptions",
-      "ec2:CreateTags"
+      "ec2:CreateDhcpOptions"
+    ],
+    "Resource": [
+      "arn:*:ec2:*:*:dhcp-options/*"
     ]
   },
   "ec2:elastic-ip": {
     "Action": [
-      "ec2:CreateNatGateway",
-      "ec2:CreateTags"
+      "ec2:CreateNatGateway"
+    ],
+    "Resource": [
+      "arn:*:ec2:*:*:elastic-ip/*"
     ]
   },
   "ec2:fleet": {
     "Action": [
-      "ec2:CreateFleet",
-      "ec2:CreateTags"
+      "ec2:CreateFleet"
+    ],
+    "Resource": [
+      "arn:*:ec2:*:*:fleet/*"
     ]
   },
   "ec2:fpga-image": {
     "Action": [
-      "ec2:CreateFpgaImage",
-      "ec2:CreateTags"
+      "ec2:CreateFpgaImage"
+    ],
+    "Resource": [
+      "arn:*:ec2:*:*:fpga-image/*"
     ]
   },
   "ec2:host-reservation": {
     "Action": [
       "ec2:CreateTags"
+    ],
+    "Resource": [
+      "arn:*:ec2:*:*:host-reservation/*"
     ]
   },
   "ec2:image": {
     "Action": [
-      "ec2:CreateFleet",
       "ec2:CreateImage",
-      "ec2:CreateLaunchTemplate",
-      "ec2:CreateLaunchTemplateVersion",
-      "ec2:CreateTags",
-      "ec2:ImportImage",
-      "ec2:RequestSpotInstances",
-      "ec2:RunInstances"
+      "ec2:ImportImage"
+    ],
+    "Resource": [
+      "arn:*:ec2:*:*:image/*"
     ]
   },
   "ec2:instance": {
     "Action": [
-      "ec2:RunInstances",
-      "ec2:CreateTags"
+      "ec2:RunInstances"
+    ],
+    "Resource": [
+      "arn:*:ec2:*:*:instance/*"
     ]
   },
-  "ec2:internet-gateway": {},
-  "ec2:launch-template": {},
-  "ec2:natgateway": {},
-  "ec2:network-acl": {},
-  "ec2:network-interface": {},
-  "ec2:reserved-instances": {},
-  "ec2:route-table": {},
-  "ec2:security-group": {},
-  "ec2:snapshot": {},
-  "ec2:spot-instance-request": {},
-  "ec2:subnet": {
-    "Action": "ec2:CreateSubnet"
+  "ec2:internet-gateway": {
+    "Action": [
+      "ec2:CreateEgressOnlyInternetGateway",
+      "ec2:CreateInternetGateway"
+    ],
+    "Resource": [
+      "arn:*:ec2:*:*:internet-gateway/*"
+    ]
   },
-  "ec2:traffic-mirror-filter": {},
-  "ec2:traffic-mirror-session": {},
-  "ec2:traffic-mirror-target": {},
+  "ec2:launch-template": {
+    "Action": [
+      "ec2:CreateLaunchTemplate"
+    ],
+    "Resource": [
+      "arn:*:ec2:*:*:launch-template/*"
+    ]
+  },
+  "ec2:natgateway": {
+    "Action": [
+      "ec2:CreateNatGateway"
+    ],
+    "Resource": [
+      "arn:*:ec2:*:*:natgateway/*"
+    ]
+  },
+  "ec2:network-acl": {
+    "Action": [
+      "ec2:CreateNetworkAcl"
+    ],
+    "Resource": [
+      "arn:*:ec2:*:*:network-acl/*"
+    ]
+  },
+  "ec2:network-interface": {
+    "Action": [
+      "ec2:CreateNetworkInterface"
+    ],
+    "Resource": [
+      "arn:*:ec2:*:*:network-interface/*"
+    ]
+  },
+  "ec2:reserved-instances": {
+    "Action": [
+      "ec2:CreateTags"
+    ],
+    "Resource": [
+      "arn:*:ec2:*:*:reserved-instances/*"
+    ]
+  },
+  "ec2:route-table": {
+    "Action": [
+      "ec2:CreateRouteTable"
+    ],
+    "Resource": [
+      "arn:*:ec2:*:*:route-table/*"
+    ]
+  },
+  "ec2:security-group": {
+    "Action": [
+      "ec2:CreateSecurityGroup"
+    ],
+    "Resource": [
+      "arn:*:ec2:*:*:security-group/*"
+    ]
+  },
+  "ec2:snapshot": {
+    "Action": [
+      "ec2:CopySnapshot",
+      "ec2:CreateSnapshot",
+      "ec2:CreateSnapshots"
+    ],
+    "Resource": [
+      "arn:*:ec2:*:*:snapshot/*"
+    ]
+  },
+  "ec2:spot-instance-request": {
+    "Action": [
+      "ec2:RequestSpotInstances"
+    ],
+    "Resource": [
+      "arn:*:ec2:*:*:spot-instance-request/*"
+    ]
+  },
+  "ec2:subnet": {
+    "Action": [
+      "ec2:CreateSubnet"
+    ],
+    "Resource": [
+      "arn:*:ec2:*:*:subnet/*"
+    ]
+  },
+  "ec2:traffic-mirror-filter": {
+    "Action": [
+      "ec2:CreateTrafficMirrorFilter"
+    ],
+    "Resource": [
+      "arn:*:ec2:*:*:traffic-mirror-filter/*"
+    ]
+  },
+  "ec2:traffic-mirror-session": {
+    "Action": [
+      "ec2:CreateTrafficMirrorSession"
+    ],
+    "Resource": [
+      "arn:*:ec2:*:*:traffic-mirror-session/*"
+    ]
+  },
+  "ec2:traffic-mirror-target": {
+    "Action": [
+      "ec2:CreateTrafficMirrorTarget"
+    ],
+    "Resource": [
+      "arn:*:ec2:*:*:traffic-mirror-target/*"
+    ]
+  },
   "ec2:volume": {
-    "Action": "ec2:CreateVolume"
+    "Action": [
+      "ec2:CreateVolume"
+    ],
+    "Resource": [
+      "arn:*:ec2:*:*:volume/*"
+    ]
   },
   "ec2:vpc": {
-    "Action": "ec2:CreateVpc"
+    "Action": "ec2:CreateVpc",
+    "Resource": [
+      "arn:*:ec2:*:*:vpc/*"
+    ]
   },
   "ec2:vpc-endpoint": {
-    "Action": "ec2:CreateVpcEndpoint"
+    "Action": "ec2:CreateVpcEndpoint",
+    "Resource": [
+      "arn:*:ec2:*:*:vpc-endpoint/*"
+    ]
   },
-  "ec2:vpc-endpoint-service": {},
-  "ec2:vpc-peering-connection": {},
-  "ec2:vpn-connection": {},
-  "ec2:vpn-gateway": {},
-  "elasticbeanstalk:application": {},
-  "elasticbeanstalk:applicationversion": {},
-  "elasticbeanstalk:configurationtemplate": {},
-  "elasticbeanstalk:platform": {},
-  "ecs:cluster": {},
-  "ecs:service": {},
-  "ecs:task-set": {},
-  "elasticfilesystem:file-system": {},
-  "elasticache:cluster": {},
-  "elasticloadbalancing:loadbalancer": {},
-  "elasticloadbalancing:targetgroup": {},
-  "fsx:backup": {},
-  "fsx:file-system": {},
-  "iotanalytics:channel": {},
-  "iotanalytics:dataset": {},
-  "iotanalytics:datastore": {},
-  "iotanalytics:pipeline": {},
-  "iotevents:detectorModel": {},
-  "iotevents:input": {},
-  "kms:key": {},
-  "kinesisanalytics:application": {},
-  "firehose:deliverystream": {},
-  "lambda:function": {},
-  "rds:cluster-pg": {},
-  "rds:es": {},
-  "rds:og": {},
-  "rds:pg": {},
-  "rds:ri": {},
-  "rds:secgrp": {},
-  "rds:subgrp": {},
-  "redshift:cluster": {},
-  "redshift:dbgroup": {},
-  "redshift:dbname": {},
-  "redshift:dbuser": {},
-  "redshift:eventsubscription": {},
-  "redshift:hsmclientcertificate": {},
-  "redshift:hsmconfiguration": {},
-  "redshift:parametergroup": {},
-  "redshift:snapshot": {},
-  "redshift:snapshotcopygrant": {},
-  "redshift:snapshotschedule": {},
-  "redshift:subnetgroup": {},
-  "ram:resource-share": {},
-  "resource-groups:*": {},
-  "resource-groups:group": {},
-  "route53:hostedzone": {},
-  "route53resolver:*": {},
-  "route53resolver:resolver-endpoint": {},
-  "route53resolver:resolver-rule": {},
-  "s3:bucket": {},
-  "secretsmanager:secret": {},
-  "sqs:queue": {},
-  "states:activity": {},
-  "storagegateway:gateway": {},
-  "storagegateway:share": {},
-  "storagegateway:tape": {},
-  "storagegateway:volume": {},
-  "ssm:automation-execution": {},
-  "ssm:document": {},
-  "ssm:maintenancewindowtask": {},
-  "ssm:managed-instance": {},
-  "ssm:opsitem": {},
-  "ssm:patchbaseline": {},
-  "ssm:session": {},
-  "workspaces:directory": {},
-  "workspaces:workspace": {},
-  "workspaces:workspacebundle": {},
-  "workspaces:workspaceimage": {},
-  "workspaces:workspaceipgroup": []
+  "ec2:vpc-endpoint-service": {
+    "Action": "ec2:CreateVpcEndpointServiceConfiguration",
+    "Resource": [
+      "arn:*:ec2:*:*:vpc-endpoint-service/*"
+    ]
+  },
+  "ec2:vpc-peering-connection": {
+    "Action": "ec2:CreateVpcPeeringConnection",
+    "Resource": [
+      "arn:*:ec2:*:*:vpc-peering-connection/*"
+    ]
+  },
+  "ec2:vpn-connection": {
+    "Action": "ec2:CreateVpnConnection",
+    "Resource": [
+      "arn:*:ec2:*:*:vpn-connection/*"
+    ]
+  },
+  "ec2:vpn-gateway": {
+    "Action": "ec2:CreateVpnGateway",
+    "Resource": [
+      "arn:*:ec2:*:*:vpn-gateway/*"
+    ]
+  },
+  "elasticbeanstalk:application": {
+    "Action": "elasticbeanstalk:CreateApplication",
+    "Resource": [
+      "arn:*:elasticbeanstalk:*:*:application/*"
+    ]
+  },
+  "elasticbeanstalk:applicationversion": {
+    "Action": "elasticbeanstalk:CreateApplicationVersion",
+    "Resource": [
+      "arn:*:elasticbeanstalk:*:*:applicationversion/*"
+    ]
+  },
+  "elasticbeanstalk:configurationtemplate": {
+    "Action": "elasticbeanstalk:CreateConfigurationTemplate",
+    "Resource": [
+      "arn:*:elasticbeanstalk:*:*:configurationtemplate/*"
+    ]
+  },
+  "elasticbeanstalk:platform": {
+    "Action": "elasticbeanstalk:CreatePlatformVersion",
+    "Resource": [
+      "arn:*:elasticbeanstalk:*:*:platform/*"
+    ]
+  },
+  "ecs:cluster": {
+    "Action": "ecs:CreateCluster",
+    "Resource": [
+      "arn:*:ecs:*:*:cluster/*"
+    ]
+  },
+  "ecs:service": {
+    "Action": "ecs:CreateService",
+    "Resource": [
+      "arn:*:ecs:*:*:service/*"
+    ]
+  },
+  "ecs:task-set": {
+    "Action": "ecs:CreateTaskSet",
+    "Resource": [
+      "arn:*:ecs:*:*:task-set/*"
+    ]
+  },
+  "elasticfilesystem:file-system": {
+    "Action": "elasticfilesystem:CreateFileSystem",
+    "Resource": [
+      "arn:*:elasticfilesystem:*:*:file-system/*"
+    ]
+  },
+  "elasticache:cluster": {
+    "Action": "elasticache:CreateCacheCluster",
+    "Resource": [
+      "arn:*:elasticache:*:*:cluster/*"
+    ]
+  },
+  "elasticloadbalancing:loadbalancer": {
+    "Action": "elasticloadbalancing:CreateLoadBalancer",
+    "Resource": [
+      "arn:*:elasticloadbalancing:*:*:loadbalancer/*"
+    ]
+  },
+  "elasticloadbalancing:targetgroup": {
+    "Action": "elasticloadbalancing:CreateTargetGroup",
+    "Resource": [
+      "arn:*:elasticloadbalancing:*:*:targetgroup/*"
+    ]
+  },
+  "fsx:backup": {
+    "Action": "fsx:CreateBackup",
+    "Resource": [
+      "arn:*:fsx:*:*:backup/*"
+    ]
+  },
+  "fsx:file-system": {
+    "Action": "fsx:CreateFileSystem",
+    "Resource": [
+      "arn:*:fsx:*:*:file-system/*"
+    ]
+  },
+  "iotanalytics:channel": {
+    "Action": "iotanalytics:CreateChannel",
+    "Resource": [
+      "arn:*:iotanalytics:*:*:channel/*"
+    ]
+  },
+  "iotanalytics:dataset": {
+    "Action": "iotanalytics:CreateDataset",
+    "Resource": [
+      "arn:*:iotanalytics:*:*:dataset/*"
+    ]
+  },
+  "iotanalytics:datastore": {
+    "Action": "iotanalytics:CreateDatasetContent",
+    "Resource": [
+      "arn:*:iotanalytics:*:*:datastore/*"
+    ]
+  },
+  "iotanalytics:pipeline": {
+    "Action": "iotanalytics:CreatePipeline",
+    "Resource": [
+      "arn:*:iotanalytics:*:*:pipeline/*"
+    ]
+  },
+  "iotevents:detectorModel": {
+    "Action": "iotevents:CreateDetectorModel",
+    "Resource": [
+      "arn:*:iotevents:*:*:detectorModel/*"
+    ]
+  },
+  "iotevents:input": {
+    "Action": "iotevents:CreateInput",
+    "Resource": [
+      "arn:*:iotevents:*:*:input/*"
+    ]
+  },
+  "kms:key": {
+    "Action": "kms:CreateKey",
+    "Resource": [
+      "arn:*:kms:*:*:key/*"
+    ]
+  },
+  "kinesisanalytics:application": {
+    "Action": "kinesisanalytics:CreateApplication",
+    "Resource": [
+      "arn:*:kinesisanalytics:*:*:application/*"
+    ]
+  },
+  "firehose:deliverystream": {
+    "Action": "firehose:CreateDeliveryStream",
+    "Resource": [
+      "arn:*:firehose:*:*:deliverystream/*"
+    ]
+  },
+  "lambda:function": {
+    "Action": "lambda:CreateFunction",
+    "Resource": [
+      "arn:*:lambda:*:*:function/*"
+    ]
+  },
+  "rds:cluster-pg": {
+    "Action": "rds:CreateDBClusterParameterGroup",
+    "Resource": [
+      "arn:*:rds:*:*:cluster-pg/*"
+    ]
+  },
+  "rds:es": {
+    "Action": "rds:CreateEventSubscription",
+    "Resource": [
+      "arn:*:rds:*:*:es/*"
+    ]
+  },
+  "rds:og": {
+    "Action": [
+      "rds:CreateOptionGroup",
+      "rds:CopyOptionGroup"
+    ],
+    "Resource": [
+      "arn:*:rds:*:*:og/*"
+    ]
+  },
+  "rds:pg": {
+    "Action": "rds:CreateDBParameterGroup",
+    "Resource": [
+      "arn:*:rds:*:*:pg/*"
+    ]
+  },
+  "rds:ri": {
+    "Action": "rds:PurchaseReservedDBInstancesOffering",
+    "Resource": [
+      "arn:*:rds:*:*:ri/*"
+    ]
+  },
+  "rds:secgrp": {
+    "Action": "rds:CreateDBSecurityGroup",
+    "Resource": [
+      "arn:*:rds:*:*:secgrp/*"
+    ]
+  },
+  "rds:subgrp": {
+    "Action": "rds:CreateDBSubnetGroup",
+    "Resource": [
+      "arn:*:rds:*:*:subgrp/*"
+    ]
+  },
+  "redshift:cluster": {
+    "Action": "redshift:CreateCluster",
+    "Resource": [
+      "arn:*:redshift:*:*:cluster/*"
+    ]
+  },
+  "redshift:dbgroup": {
+    "Action": "redshift:CreateTags",
+    "Resource": [
+      "arn:*:redshift:*:*:dbgroup/*"
+    ]
+  },
+  "redshift:dbname": {
+    "Action": "redshift:CreateTags",
+    "Resource": [
+      "arn:*:redshift:*:*:dbname/*"
+    ]
+  },
+  "redshift:dbuser": {
+    "Action": "redshift:CreateTags",
+    "Resource": [
+      "arn:*:redshift:*:*:dbuser/*"
+    ]
+  },
+  "redshift:eventsubscription": {
+    "Action": "redshift:CreateEventSubscription",
+    "Resource": [
+      "arn:*:redshift:*:*:eventsubscription/*"
+    ]
+  },
+  "redshift:hsmclientcertificate": {
+    "Action": "redshift:CreateHsmClientCertificate",
+    "Resource": [
+      "arn:*:redshift:*:*:hsmclientcertificate/*"
+    ]
+  },
+  "redshift:hsmconfiguration": {
+    "Action": "redshift:CreateHsmConfiguration",
+    "Resource": [
+      "arn:*:redshift:*:*:hsmconfiguration/*"
+    ]
+  },
+  "redshift:parametergroup": {
+    "Action": "redshift:CreateClusterParameterGroup",
+    "Resource": [
+      "arn:*:redshift:*:*:parametergroup/*"
+    ]
+  },
+  "redshift:snapshot": {
+    "Action": "redshift:CreateClusterSnapshot",
+    "Resource": [
+      "arn:*:redshift:*:*:snapshot/*"
+    ]
+  },
+  "redshift:snapshotcopygrant": {
+    "Action": "redshift:CreateSnapshotCopyGrant",
+    "Resource": [
+      "arn:*:redshift:*:*:snapshotcopygrant/*"
+    ]
+  },
+  "redshift:snapshotschedule": {
+    "Action": "redshift:CreateSnapshotSchedule",
+    "Resource": [
+      "arn:*:redshift:*:*:snapshotschedule/*"
+    ]
+  },
+  "redshift:subnetgroup": {
+    "Action": "redshift:CreateClusterSubnetGroup",
+    "Resource": [
+      "arn:*:redshift:*:*:subnetgroup/*"
+    ]
+  },
+  "ram:resource-share": {
+    "Action": "ram:CreateResourceShare",
+    "Resource": [
+      "arn:*:ram:*:*:resource-share/*"
+    ]
+  },
+  "resource-groups:group": {
+    "Action": "resource-groups:CreateGroup",
+    "Resource": [
+      "arn:*:route53:*:*:hostedzone/*"
+    ]
+  },
+  "route53:hostedzone": {
+    "Action": "route53:CreateHostedZone",
+    "Resource": [
+      "arn:*:route53:*:*:hostedzone/*"
+    ]
+  },
+  "route53resolver:resolver-endpoint": {
+    "Action": "route53resolver:CreateResolverEndpoint",
+    "Resource": [
+      "arn:*:route53resolver:*:*:resolver-endpoint/*"
+    ]
+  },
+  "route53resolver:resolver-rule": {
+    "Action": "route53resolver:CreateResolverRule",
+    "Resource": [
+      "arn:*:route53resolver:*:*:resolver-rule/*"
+    ]
+  },
+  "s3:bucket": {
+    "Action": "s3:CreateBucket",
+    "Resource": [
+      "arn:*:s3:*:*:bucket/*"
+    ]
+  },
+  "secretsmanager:secret": {
+    "Action": "secretsmanager:CreateSecret",
+    "Resource": [
+      "arn:*:secretsmanager:*:*:secret/*"
+    ]
+  },
+  "sqs:queue": {
+    "Action": "sqs:CreateQueue",
+    "Resource": [
+      "arn:*:sqs:*:*:queue/*"
+    ]
+  },
+  "states:activity": {
+    "Action": "states:CreateActivity",
+    "Resource": [
+      "arn:*:states:*:*:activity/*"
+    ]
+  },
+  "storagegateway:gateway": {
+    "Action": "storagegateway:ActivateGateway",
+    "Resource": [
+      "arn:*:storagegateway:*:*:gateway/*"
+    ]
+  },
+  "storagegateway:share": {
+    "Action": [
+      "storagegateway:CreateNFSFileShare",
+      "storagegateway:CreateSMBFileShare"
+    ],
+    "Resource": [
+      "arn:*:storagegateway:*:*:share/*"
+    ]
+  },
+  "storagegateway:tape": {
+    "Action": [
+      "storagegateway:CreateTapePool",
+      "storagegateway:CreateTapeWithBarcode",
+      "storagegateway:CreateTapes"
+    ],
+    "Resource": [
+      "arn:*:storagegateway:*:*:tape/*"
+    ]
+  },
+  "storagegateway:volume": {
+    "Action": [
+      "storagegateway:CreateStorediSCSIVolume"
+    ],
+    "Resource": [
+      "arn:*:storagegateway:*:*:volume/*"
+    ]
+  },
+  "ssm:automation-execution": {
+    "Action": "ssm:StartAutomationExecution",
+    "Resource": [
+      "arn:*:ssm:*:*:automation-execution/*"
+    ]
+  },
+  "ssm:document": {
+    "Action": "ssm:CreateDocument",
+    "Resource": [
+      "arn:*:ssm:*:*:document/*"
+    ]
+  },
+  "ssm:maintenancewindowtask": {
+    "Action": "ssm:CreateMaintenanceWindow",
+    "Resource": [
+      "arn:*:ssm:*:*:maintenancewindowtask/*"
+    ]
+  },
+  "ssm:managed-instance": {
+    "Action": "ssm:CreateAssociation",
+    "Resource": [
+      "arn:*:ssm:*:*:managed-instance/*"
+    ]
+  },
+  "ssm:opsitem": {
+    "Action": "ssm:CreateOpsItem",
+    "Resource": [
+      "arn:*:ssm:*:*:opsitem/*"
+    ]
+  },
+  "ssm:patchbaseline": {
+    "Action": "ssm:CreatePatchBaseline",
+    "Resource": [
+      "arn:*:ssm:*:*:patchbaseline/*"
+    ]
+  },
+  "ssm:session": {
+    "Action": "ssm:StartSession",
+    "Resource": [
+      "arn:*:ssm:*:*:session/*"
+    ]
+  },
+  "workspaces:directory": {
+    "Action": [
+      "workspaces:RegisterWorkspaceDirectory",
+      "workspaces:CreateWorkspaces"
+    ],
+    "Resource": [
+      "arn:*:workspaces:*:*:directory/*"
+    ]
+  },
+  "workspaces:workspace": {
+    "Action": "workspaces:CreateWorkspaces",
+    "Resource": [
+      "arn:*:workspaces:*:*:workspace/*"
+    ]
+  },
+  "workspaces:workspacebundle": {
+    "Action": "workspaces:CreateWorkspaceBundle",
+    "Resource": [
+      "arn:*:workspaces:*:*:workspacebundle/*"
+    ]
+  },
+  "workspaces:workspaceimage": {
+    "Action": "workspaces:ImportWorkspaceImage",
+    "Resource": [
+      "arn:*:workspaces:*:*:workspaceimage/*"
+    ]
+  },
+  "workspaces:workspaceipgroup": {
+    "Action": "workspaces:CreateIpGroup",
+    "Resource": [
+      "arn:*:workspaces:*:*:workspaceipgroup/*"
+    ]
+  }
 }
