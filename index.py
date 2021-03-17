@@ -29,11 +29,11 @@ def validate_and_optimize_statement(s):
 
 def inject_tag_to_condition_template(tag, condition):
     new_condition = {}
-    for condition_key in condition:
-        new_condition[condition_key] = {}
-        for key, val in condition[condition_key].items():
+    for operator in condition:
+        new_condition[operator] = {}
+        for key, val in condition[operator].items():
             new_key = key.replace("<tag>", tag)
-            new_condition[condition_key][new_key] = val.replace("<tag>", tag)
+            new_condition[operator][new_key] = val.replace("<tag>", tag)
     return new_condition
 
 
